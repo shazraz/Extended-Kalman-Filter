@@ -56,7 +56,7 @@ LIDAR Only           |  RADAR Only
 :-------------------------:|:-------------------------:
 <img src="./graphics/LIDAR.png" width="500">  |   <img src="./graphics/RADAR.png" width="500"> 
 
-It is seen that the overall RMSE value for position in the absence of one sensor is higher than the position RMSE values when both sensors are used. In particular, the RADAR sensor does a poor job of position estimation due to the sensing mechanism used by the sensor i.e. Doppler effect to directly measure velocity. The LIDAR does a relatively better job of estimating position, however, velocity measurments are poorer in the absence of RADAR data. 
+It is seen that the overall RMSE value for position in the absence of one sensor is higher than the position RMSE values when both sensors are used. In particular, the RADAR sensor does a poor job of position estimation due to the sensing mechanism used by the sensor i.e. Doppler effect to directly measure velocity. The LIDAR does a relatively better job of estimating position, however, velocity measurements are worse in the absence of RADAR data. 
 
 This demonstrates the value of an EKF which is able to take noisy measurements from multiple sensor types and generate a state estimation more accurate than estimations from individual sensors by combining the Gaussian probability distributions of the measurements with its own prediction (also a Gaussian prob. dist.) of where the tracked object is located.
 
