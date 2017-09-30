@@ -35,11 +35,13 @@ Once the environment is ready, the code can be tested as follows:
 3. make
 4. Launch the simulator and select the EKF/UKF project
 5. ./ExtendedKF
-6. Start
+6. Click Start in the simulator
+
+The simulator shows a blue vehicle moving in a figure 8 around a stationary sensor. Green markers represent the state estimations determined by the EKF using the noisy RADAR (blue markers) and LIDAR (red markers) data.
 
 ## 3. Discussion
 
-
+This EKF models the following characteristics of object state, x: (px, py, vx, vy) where p & v represent the position and velocity respectively. The state is initalized with values x:(```meas1_px```, ```meas1_py```, 0.5, 0.5) where meas1_px and meas1_py are set using the first measurement recieved. The covariance matrix, P, is initialized with a variance of (1,1,500,500) along the diagonals to reflect the uncertainty in the initial velocity but relative certainty in the initial position.
 
 
 
