@@ -37,11 +37,26 @@ Once the environment is ready, the code can be tested as follows:
 5. ./ExtendedKF
 6. Click Start in the simulator
 
-The simulator shows a blue vehicle moving in a figure 8 around a stationary sensor. Green markers represent the state estimations determined by the EKF using the noisy RADAR (blue markers) and LIDAR (red markers) data.
+The simulator shows a blue vehicle moving in a figure 8 around a stationary sensor. Green markers represent the state estimations determined by the EKF using the noisy RADAR (blue markers) and LIDAR (red markers) data. Two datasets are provided, Dataset 1 has the vehicle initially moving in the positive x direction and Dataset 2 has the vehicle initially moving in the negative x direction.
 
-## 3. Discussion
+## 3. Results & Discussion
 
 This EKF models the following characteristics of object state, x: (px, py, vx, vy) where p & v represent the position and velocity respectively. The state is initalized with values x:(```meas1_px```, ```meas1_py```, 0.5, 0.5) where meas1_px and meas1_py are set using the first measurement recieved. The covariance matrix, P, is initialized with a variance of (1,1,500,500) along the diagonals to reflect the uncertainty in the initial velocity but relative certainty in the initial position.
 
+The following images show the results in the simulator for both datasets.
 
+Dataset 1             |  Dataset 2 
+:-------------------------:|:-------------------------:
+<img src="./graphics/Dataset1.png" width="500">  |   <img src="./graphics/Dataset2.png" width="500"> 
+
+
+The images above show accurate estimations of state for the vehicle with the final RMSE values over all timesteps. The effect of individual sensor measurements can be analyzed by turning off the updates for a particular sensor. The images below show the effect of using LIDAR only measurements and RADAR only measurements for Dataset 1.
+
+LIDAR Only           |  RADAR Only
+:-------------------------:|:-------------------------:
+<img src="./graphics/LIDAR.png" width="500">  |   <img src="./graphics/RADAR.png" width="500"> 
+
+It is seen that the overall RMSE value for position in the absence of one sensor is higher than the position RMSE values when both sensors are used. In particular, the RADAR sensor does a poor job of position estimation due to the sensing mechanism used by the sensor i.e. Doppler effect to directly measure velocity. The LIDAR does a relatively better job of estimating position, however, velocity measurments are poorer in the absence of RADAR data. 
+
+This demonstrates the value of an EKF which is able to take noisy measurements from multiple sensor types and generate a state estimation more accurate than estimations from individual sensors by combining the Gaussian probability distributions of the measurements with its own prediction (also a Gaussian prob. dist.) of where the tracked object is located.
 
