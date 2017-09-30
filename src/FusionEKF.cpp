@@ -97,8 +97,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	       0,0,1,0,
 	       0,0,0,1;    
     //assign initial values to the covariance matrix, P. Adjust the variance values to reflect uncertainty in initial state
-    ekf_.P_ << 500,0,0,0,
-	       0,500,0,0,
+    ekf_.P_ << 1,0,0,0,
+	       0,1,0,0,
 	       0,0,500,0,
 	       0,0,0,500;    
 
