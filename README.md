@@ -8,7 +8,7 @@ This project utilizes an EKF (Extended Kalman Filter) implemented in C++ to esti
 
 The Extended Kalman filter builds on the Kalman Filter to incorporate non-linearities in the sensor transformation matrixes using a matrix of first order derivatives, known as a Jacobian. Here's a good resource for beginners:
 
-* [Extended Kalman Filter](https://home.wlu.edu/~levys/kalman_tutorial/)
+* [Extended Kalman Filter](https://simondlevy.github.io/ekf-tutorial/)
 
 This project was completed as part of Term 2 of Udacity's Self Driving Car Nanodegree program.
 
